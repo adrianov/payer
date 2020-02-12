@@ -1,0 +1,37 @@
+<%= form_with(model: payout, local: true) do |form| %>
+  <% if payout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payout.errors.count, 'ошибка', plural: 'ошибок') %> при заполнении формы:</h2>
+
+      <ul>
+        <% payout.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :amount, 'Сумма выплаты' %>
+    <%= form.number_field :amount %>
+  </p>
+
+  <p>
+    <%= form.label :phone, 'Телефон клиента' %>
+    <%= form.text_field :phone %>
+  </p>
+
+  <p>
+    <%= form.label :client, 'Номер банковской карты' %>
+    <%= form.text_field :client %>
+  </p>
+
+  <p>
+    <%= form.label :receiver_fio, 'ФИО получателя' %>
+    <%= form.text_field :receiver_fio %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit 'Создать запрос на выплату' %>
+  </div>
+<% end %>

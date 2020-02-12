@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>История платежей</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payouts.each do |payout| %>
+      <tr>
+        <td><%= link_to 'Смотреть', payout %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to 'Создать платёж', new_payout_path %>
+</p>
