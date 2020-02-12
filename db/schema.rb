@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_12_204521) do
 
   create_table "payouts", force: :cascade do |t|
-    t.datetime "dt", null: false
+    t.datetime "dt", precision: 0, null: false
     t.decimal "amount", precision: 12, scale: 2, null: false
     t.string "phone", null: false
     t.string "client", null: false
