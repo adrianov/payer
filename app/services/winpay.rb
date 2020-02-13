@@ -5,8 +5,7 @@ class Winpay
 
   # Проверить баланс
   def balance
-    dt = dt_format(DateTime.now)
-    call_api 'balance', DT: dt
+    call_api 'balance', DT: dt_format(DateTime.now)
   end
 
   def initialize(payout)
@@ -15,10 +14,9 @@ class Winpay
 
   # Создать запрос на выплату
   def payout
-    dt = dt_format(@payout.dt)
     call_api 'payout',
              ID: @payout.id,
-             DT: dt,
+             DT: dt_format(@payout.dt),
              AMOUNT: @payout.amount,
              PHONE: @payout.phone,
              CLIENT: @payout.client,
@@ -28,7 +26,11 @@ class Winpay
 
   # Запрос статуса выплаты
   def check
-
+    call_api 'check',
+             ID: @payout.id,
+             DT: dt_format(@payout.dt),
+             AMOUNT: @payout.amount,
+             DESTINATION: @payout.destination
   end
 
   private
@@ -50,6 +52,13 @@ class Winpay
                           payload[:AMOUNT],
                           payload[:PHONE],
                           payload[:CLIENT],
+                          payload[:DESTINATION],
+                        ])
+                 when 'check'
+                   hash([
+                          payload[:ID],
+                          payload[:DT],
+                          payload[:AMOUNT],
                           payload[:DESTINATION],
                         ])
                  end
