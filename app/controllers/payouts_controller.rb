@@ -19,6 +19,13 @@ class PayoutsController < ApplicationController
     @balance = Hash.from_xml(Winpay.new(nil).balance.body)['response']['balance']
   end
 
+  # Обновить статус
+  def check
+    @payout = Payout.find(params[:id])
+    @payout.check
+    redirect_back(fallback_location: root_path)
+  end
+
   # GET /payouts/new
   def new
     @payout = Payout.new

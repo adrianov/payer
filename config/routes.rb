@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :payouts do
     get 'balance', on: :collection
+    get 'check', on: :member
   end
 end
