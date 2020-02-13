@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 class PayoutsController < ApplicationController
+  http_basic_authenticate_with name: Rails.application.credentials.username,
+                               password: Rails.application.credentials.password,
+                               only: :index
+
   # GET /payouts
   def index
     @payouts = Payout.all
