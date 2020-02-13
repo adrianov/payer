@@ -14,6 +14,11 @@ class PayoutsController < ApplicationController
     @payout = Payout.find(params[:id])
   end
 
+  # Показать баланс
+  def balance
+    @balance = Hash.from_xml(Winpay.new(nil).balance.body)['response']['balance']
+  end
+
   # GET /payouts/new
   def new
     @payout = Payout.new
