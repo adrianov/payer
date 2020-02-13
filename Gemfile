@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # REST client
 gem 'rest-client'
 
+# Strip spaces in form fields
+gem 'strip_attributes'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
