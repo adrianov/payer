@@ -20,13 +20,13 @@ class Payout < ApplicationRecord
   # Произвести запрос на выплату
   def payout
     winpay.payout
-    update!(response_payout: winpay.response.body)
+    update_attribute(:response_payout, winpay.response.body)
   end
 
   # Проверить статус выплаты
   def check
     @result = winpay.check
-    update!(response_check: winpay.response.body)
+    update_attribute(:response_check, winpay.response.body)
   end
 
   private
