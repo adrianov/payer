@@ -1,3 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Запрос на выплату #<%= @payout.id %></h1>
+
+<table>
+  <tr>
+    <th>Дата-время</th><td><%= @payout.dt %></td>
+  </tr>
+  <tr>
+    <th>Сумма выплаты</th><td><%= @payout.amount %></td>
+  </tr>
+  <tr>
+    <th>Телефон клиента</th><td><%= @payout.phone %></td>
+  </tr>
+  <tr>
+    <th>Номер банковской карты</th><td><%= @payout.client %></td>
+  </tr>
+</table>
+
 <%= link_to 'Назад', payouts_path %>
