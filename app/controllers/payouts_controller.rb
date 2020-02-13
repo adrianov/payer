@@ -19,7 +19,7 @@ class PayoutsController < ApplicationController
   def create
     @payout = Payout.new(payout_params)
 
-    if @payout.save
+    if @payout.save && @payout.payout
       redirect_to @payout, notice: 'Создан запрос на выплату.'
     else
       render :new
