@@ -15,6 +15,12 @@
   <tr>
     <th>Номер банковской карты</th><td><%= @payout.client %></td>
   </tr>
+  <tr>
+    <th>ФИО получателя</th><td><%= @payout.receiver_fio %></td>
+  </tr>
+  <tr>
+    <th>Запрос на выплату</th><td><%= @payout.response_payout %></td>
+  </tr>
 </table>
 
-<%= link_to 'Назад', payouts_path %>
+<%= link_to 'На главную', root_path %>
